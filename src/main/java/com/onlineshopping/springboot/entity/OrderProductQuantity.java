@@ -2,13 +2,24 @@ package com.onlineshopping.springboot.entity;
 
 import lombok.Getter;
 
-@Getter
 public class OrderProductQuantity {
+
     private Integer productId;
     private Integer quantity;
 
-    public void setProductId(Integer productId) {this.productId = productId;}
+    public Integer getProductId() {
+        return productId;
+    }
 
-    public void setQuantity(Integer quantity) {this.quantity = quantity;}
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }

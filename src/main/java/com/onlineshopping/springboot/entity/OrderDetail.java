@@ -4,9 +4,9 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
-@Getter
 @Entity
 public class OrderDetail {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
@@ -21,9 +21,11 @@ public class OrderDetail {
     @OneToOne
     private User user;
     private String transactionId;
+
     public OrderDetail() {
 
     }
+
     public OrderDetail(String orderFullName, String orderFullOrder, String orderContactNumber, String orderAlternateContactNumber, String orderStatus, Double orderAmount, Product product, User user, String transactionId) {
         this.orderFullName = orderFullName;
         this.orderFullOrder = orderFullOrder;
@@ -36,27 +38,84 @@ public class OrderDetail {
         this.transactionId = transactionId;
     }
 
-    public void setTransactionId(String transactionId){this.transactionId = transactionId;}
+    public String getTransactionId() {
+        return transactionId;
+    }
 
-    public void setProduct(Product product){this.product = product;}
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
 
-    public void setUser(User user){this.user = user;}
+    public Product getProduct() {
+        return product;
+    }
 
-    public void setOrderId(Integer orderId) {this.orderId = orderId;}
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
-    public void setOrderFullName(String orderFullName) {this.orderFullName = orderFullName;}
+    public User getUser() {
+        return user;
+    }
 
-    public void setOrderFullOrder(String orderFullOrder) {this.orderFullOrder = orderFullOrder;}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-    public void setOrderContactNumber(String orderContactNumber) {this.orderContactNumber = orderContactNumber;}
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderFullName() {
+        return orderFullName;
+    }
+
+    public void setOrderFullName(String orderFullName) {
+        this.orderFullName = orderFullName;
+    }
+
+    public String getOrderFullOrder() {
+        return orderFullOrder;
+    }
+
+    public void setOrderFullOrder(String orderFullOrder) {
+        this.orderFullOrder = orderFullOrder;
+    }
+
+    public String getOrderContactNumber() {
+        return orderContactNumber;
+    }
+
+    public void setOrderContactNumber(String orderContactNumber) {
+        this.orderContactNumber = orderContactNumber;
+    }
+
+    public String getOrderAlternateContactNumber() {
+        return orderAlternateContactNumber;
+    }
 
     public void setOrderAlternateContactNumber(String orderAlternateContactNumber) {
         this.orderAlternateContactNumber = orderAlternateContactNumber;
     }
 
-    public void setOrderStatus(String orderStatus) {this.orderStatus = orderStatus;}
+    public String getOrderStatus() {
+        return orderStatus;
+    }
 
-    public void setOrderAmount(Double orderAmount) {this.orderAmount = orderAmount;}
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 
+    public Double getOrderAmount() {
+        return orderAmount;
+    }
+
+    public void setOrderAmount(Double orderAmount) {
+        this.orderAmount = orderAmount;
+    }
 }
 

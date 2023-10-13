@@ -30,10 +30,10 @@ public class JwtUtil {
         return (username.equals(userDetails.getUsername()) &&!isTokenExpired(token));
     }
     private Boolean isTokenExpired(String token) {
-        final Date expiration = getExpirationDateFromToken(token);
-        return expiration.before(new Date());
+        final java.util.Date expiration = getExpirationDateFromToken(token);
+        return expiration.before(new java.util.Date());
     }
-    public Date getExpirationDateFromToken(String token) {return getClaimFromToken(token, Claims::getExpiration);}
+    public Date getExpirationDateFromToken(String token) {return (Date) getClaimFromToken(token, Claims::getExpiration);}
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         return Jwts.builder()

@@ -33,16 +33,13 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts(int pageNumber, String searchKey) {
-        Pageable pageable = PageRequest.of(pageNumber,12);
+        Pageable pageable = PageRequest.of(pageNumber, 12);
 
-        if(searchKey.equals("")) {
-            return (List<Product>) productDao.findAll((java.awt.print.Pageable) pageable);
+        if (searchKey.equals("")) {
+            return productDao.findAll( pageable);
         } else {
-            return (List<Product>) productDao.findByProductNameContainingIgnoreCaseOrProductDescriptionContainingIgnoreCase(
-                    searchKey, searchKey, (java.awt.print.Pageable) pageable
-            );
+            return productDao.findByProductNameContainingIgnoreCaseOrProductDescriptionContainingIgnoreCase(searchKey, searchKey, pageable);
         }
-
     }
 
     public Product getProductDetailsById(Integer productId) {
